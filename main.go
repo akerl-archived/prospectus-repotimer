@@ -24,14 +24,13 @@ func run(cfg config) error {
 	if branch == "" {
 		branch = "main"
 	}
-	refName := fmt.Sprintf("refs/heads/%s", branch)
 
 	repo, err := git.PlainOpen(".")
 	if err != nil {
 		return err
 	}
 
-	ref, err := repo.Reference(plumbing.NewBranchReferenceName(refName), false)
+	ref, err := repo.Reference(plumbing.NewBranchReferenceName(branch), true)
 	if err != nil {
 		return err
 	}
