@@ -3,7 +3,7 @@ module github.com/akerl/prospectus-repotimer
 go 1.19
 
 require (
-	github.com/akerl/prospectus/v3 v3.0.0
+	github.com/akerl/prospectus/v3 v3.0.1
 	github.com/go-git/go-git/v5 v5.5.2
 )
 

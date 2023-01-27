@@ -61,10 +61,14 @@ func run(cfg config) error {
 
 func main() {
 	cfg := config{}
-	err := plugin.ParseConfig(&cfg)
+	meta, err := plugin.ParseConfig(&cfg)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to load config: %s", err)
 		os.Exit(1)
+	}
+	if meta.Mode == plugin.Expected {
+		fmt.Println("fresh")
+		return
 	}
 	err = run(cfg)
 	if err != nil {
